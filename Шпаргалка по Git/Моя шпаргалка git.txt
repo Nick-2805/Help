@@ -1,0 +1,76 @@
+$ git config --global user.name
+Nick   
+( $ git config --global user.name  "Nick2805"// чтобы изменить)
+
+$ git config --global user.email
+nikolai-pavlov-1987@mail.ru
+
+git branch -M main // изменяет название ветки в main (по умолчанию master);
+
+git remote add origin https://github.com/Nick-2805/cosmetologist-natalie.git
+(добавили адресс удаленного репозитория);
+
+$ mkdir new-papka (создаем новую папку);
+$ cd new-papka (переход в эту папку);
+$ git branch -d main2 (удаляем локальную ветку);
+$ git branch -D main2 (удаляем локальную ветку);
+$ git remote prune origin (удаляем локальную ветку);
+$ git push origin  :main2 (удаляем ветку в git);
+
+$ git clone https://github.com/Nick-2805/cosmetologist-natalie.git (клонируем проект);
+
+$ git branch -a (список всех веток);
+$ git branch (список локальных ветвей);
+$ git branch -r (список лоkальных ветвей);
+$ git fetch (свежий список);
+
+$ git branch master (добавили ветку master);
+$ git checkout master (перешли на ветку master);
+$ git branch  -D master (удалили ветку master);
+
+/*-------------------------------------------------------------*/
+git branch --set-upstream <remote-branch>
+устанавливает удаленную ветвь по умолчанию для текущей локальной ветви.
+
+Любая будущая команда git pull (с извлеченной текущей локальной ветвью)
+попытается ввести коммиты из <remote-branch> в текущую локальную ветвь.
+
+Один из способов избежать необходимости явно вводить --set-upstream -это использовать его сокращенный флаг -u следующим образом:
+
+git push -u origin local-branch
+/*-------------------------------------------------------------*/
+ОШИБКА 1
+
+ To https://github.com/Sholokhov99/Web.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/Sholokhov99/Web.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+РЕШЕНИЕ
+
+Когда в GH создаётся репозиторий, он не пустой (не знаю, чем они там думали), поэтому первый раз надо делать git push -u --force origin master. Полно таких вопросов здесь. Модераторам на заметку, дубликат на 99.9%. – 
+0andriy
+ 20 фев '20 в 20:45 
+Если же рчень хочется сохранить то, что уже есть на GH, то тогда делаем git pull --rebase origin master; git push. Тоже миллион вопросов-ответов на эту тему. – 
+0andriy
+ 20 фев '20 в 20:47 
+
+/*-------------------------------------------------------------*/
+…or create a new repository on the command line
+echo "# cosmetologist-natalie" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Nick-2805/cosmetologist-natalie.git
+git push -u origin main
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/Nick-2805/cosmetologist-natalie.git
+git branch -M main
+git push -u origin main
+/*-------------------------------------------------------------
